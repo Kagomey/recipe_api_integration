@@ -1,6 +1,6 @@
 <template>
 <div class="flexbox-container">
-    <div v-for="category in categories" class="item" @click="selectCategory">
+    <div v-for="category in categories" class="flexbox-item" @click="selectCategory">
         <img :src="category.strCategoryThumb">
         <router-link :to="'/category/'+category.strCategory" tag="p">{{category.strCategory}}</router-link>
     </div>
@@ -32,12 +32,15 @@ export default {
 <style scoped>
     .flexbox-container {
         display: flex;
-        height: 150px;
-        align-items: stretch;
-        background-color: yellow;
+        max-height: 150px;
+        max-width: 75%;
+        /* flex-wrap: wrap; */
+        min-width: 1000px;
     }
-    .item {
-        border: 1px black solid;
+    .flexbox-item {
+        max-height: 100px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
     .item:hover {
         cursor: pointer;
@@ -45,7 +48,9 @@ export default {
     img {
         border-radius: 50%;
         max-width: 100%;
-        height: auto
+        min-width: 50px;
+        min-height: 50px;
+        /* height: auto; */
     }
     p {
         text-align: center;

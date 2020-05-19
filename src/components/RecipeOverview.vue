@@ -3,13 +3,14 @@
         <div class="image">
             <img :src="data.strMealThumb">
         </div>
-        <h3>
-            {{data.strMeal}}
-        </h3>
+        <div class="text">
+            <h3>
+                {{data.strMeal}}
+            </h3>
 
-        <div class="description">
-            <p>Category: {{data.strCategory}}</p>
-            <p>Area: {{data.strArea}}</p>
+            <div class="description">
+                <p>Category: {{data.strCategory}} - Area: {{data.strArea}}</p>
+            </div>
         </div>
     </div>
 </template>
@@ -22,12 +23,21 @@ export default {
        return {
            data: '',
            loading: true,
-           id: 52772
        }
    },
-//    props: ['id'],
+   props: ['id'],
+   watch: {
+       'id'(to, from) {
+        TheMealDB.getRecipesById(this.id)
+            .then(recipe => {
+                this.data = recipe.meals[0]
+            })
+            .catch(error => console.log(error))
+            .finally(() => this.loading = false)
+       }
+   },
    created() {
-       TheMealDB.getRecipe(this.id)
+       TheMealDB.getRecipesById(this.id)
             .then(recipe => {
                 this.data = recipe.meals[0]
             })
@@ -38,11 +48,19 @@ export default {
 </script>
 
 <style>
-.recipeCard {
-    border: 1px black solid;
-}
+
+
+
 img {
     max-width: 100%;
     height: auto;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+h3 {
+    text-align: center;
+}
+.description {
+    padding-left :10px;
 }
 </style>
