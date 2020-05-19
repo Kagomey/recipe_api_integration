@@ -1,7 +1,8 @@
 <template>
     <div class="food_detail_card">
         <h3>{{meal_data.strMeal}}</h3>
-        <p v-if="meal_data.dateModified">Date modified: {{meal_data.dateModified}}</p>
+        <router-link tag="div" :to="'/category/'+meal_data.strCategory" class="back_arrow"><span>&#8592;</span> Back to Category</router-link>
+        <p v-if="meal_data.dateModified">Date modified: {{meal_data.dateModified}}</router-link>
         <hr>
         Category: {{meal_data.strCategory}}
         Origin: {{meal_data.strArea}}
@@ -15,6 +16,8 @@
 
         <hr>
         Instructions: {{meal_data.strInstructions}}
+        <hr>
+        <youtube class="video" :video-id="$youtube.getIdFromURL(meal_data.strYoutube)"></youtube>
         <hr>
         Source: {{meal_data.strSource}}
     </div>
@@ -43,6 +46,29 @@ export default {
 
 <style scoped>
 .food_detail_card {
-
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid black;
+    margin-top: 20px;
+    padding: 10px;
+}
+.video {
+    margin-left: auto;
+    margin-right: auto
+}
+.back_arrow:hover {
+    cursor: pointer;
+    /* background-color: grey; */
+    color: grey;
+}
+.back_arrow {
+    border: 1px solid black;
+    border-radius: 5px;
+    max-width: 10%;
+    min-width: 60px;;
+    margin-left: auto;
+    margin-right: 0;
+    padding: 5px;
 }
 </style>

@@ -20,7 +20,6 @@ export default {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        width: 80%;
     }
     .flex-item {
         margin: 10px;
@@ -36,6 +35,6 @@ export default {
     .flex-item:hover {
         top: -10px;
         border: 2px solid black;
-        pointer: click;
+        cursor: pointer;
     }
 </style>
