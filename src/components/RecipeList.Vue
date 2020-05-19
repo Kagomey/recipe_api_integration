@@ -36,5 +36,6 @@ export default {
     .flex-item:hover {
         top: -10px;
         border: 2px solid black;
+        pointer: click;
     }
 </style>

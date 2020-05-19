@@ -1,5 +1,5 @@
 <template>
-    <div class="recipeCard">
+    <router-link tag="div" :to="'/recipe/' + data.idMeal" class="recipeCard">
         <div class="image">
             <img :src="data.strMealThumb">
         </div>
@@ -12,7 +12,22 @@
                 <p>Category: {{data.strCategory}} - Area: {{data.strArea}}</p>
             </div>
         </div>
-    </div>
+    </router-link>
+    <!-- <div class="recipeCard" @click="displayDetails(data.idMeal)">
+
+        <div class="image">
+            <img :src="data.strMealThumb">
+        </div>
+        <div class="text">
+            <h3>
+                {{data.strMeal}}
+            </h3>
+
+            <div class="description">
+                <p>Category: {{data.strCategory}} - Area: {{data.strArea}}</p>
+            </div>
+        </div>
+    </div> -->
 </template>
 
 <script>
@@ -43,6 +58,11 @@ export default {
             })
             .catch(error => console.log(error))
             .finally(() => this.loading = false)
+   },
+   methods: {
+       displayDetails(id) {
+           console.log(id);
+       }
    }
 }
 </script>
