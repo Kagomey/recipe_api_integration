@@ -4,30 +4,12 @@
             <img :src="data.strMealThumb">
         </div>
         <div class="text">
-            <h3>
-                {{data.strMeal}}
-            </h3>
-
+            <h3>{{data.strMeal}}</h3>
             <div class="description">
                 <p>Category: {{data.strCategory}} - Area: {{data.strArea}}</p>
             </div>
         </div>
     </router-link>
-    <!-- <div class="recipeCard" @click="displayDetails(data.idMeal)">
-
-        <div class="image">
-            <img :src="data.strMealThumb">
-        </div>
-        <div class="text">
-            <h3>
-                {{data.strMeal}}
-            </h3>
-
-            <div class="description">
-                <p>Category: {{data.strCategory}} - Area: {{data.strArea}}</p>
-            </div>
-        </div>
-    </div> -->
 </template>
 
 <script>
@@ -69,7 +51,9 @@ export default {
 
 <style>
 
-
+.recipeCard {
+    background-color: #F7F6E5;
+}
 
 img {
     max-width: 100%;
@@ -79,6 +63,14 @@ img {
 }
 h3 {
     text-align: center;
+    font-variation-settings: "wght" 600 "wdth" 400;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1;
+}
+.text {
+    position: relative;
+    vertical-align: bottom;
 }
 .description {
     padding-left :10px;

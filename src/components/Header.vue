@@ -14,9 +14,6 @@ export default {
 .carousel {
     display: block;
     border-radius: 10px;
-    min-width:1000px;
-    margin-left: auto;
-    margin-right: auto;
-
+    width: 100%;
 }
 </style>

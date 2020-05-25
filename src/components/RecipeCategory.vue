@@ -43,5 +43,7 @@ export default {
 </script>
 
 <style>
-
+h2 {
+    padding-left: 1em;
+}
 </style>

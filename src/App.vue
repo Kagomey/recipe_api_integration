@@ -23,14 +23,21 @@ export default {
 </script>
 
 <style>
+@font-face {
+  font-family: 'Jost';
+  src: url('/assets/Jost-VariableFont_wght.ttf') format('ttf');
+}
+
 .total-container {
   max-width: 80%;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   margin-left: auto;
   margin-right: auto;
-  /* background-color: white; */
+  background-color: white;
+  font-family: 'Jost', sans-serif;
 }
 .background {
-  /* background-color: #272729; */
+ /*  */
 }
+
 </style>
